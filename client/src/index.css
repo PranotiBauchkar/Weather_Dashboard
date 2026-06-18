@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply overflow-x-hidden;
+  }
+
+  body {
+    @apply font-sans antialiased overflow-x-hidden text-slate-900;
+  }
+
+  .dark body {
+    @apply text-slate-100;
+  }
+}
+
+@layer components {
+  .saas-card {
+    @apply rounded-card border border-white/40 bg-white/60 p-5 shadow-card backdrop-blur-xl transition-all duration-300 min-w-0;
+  }
+
+  .dark .saas-card {
+    @apply border-slate-700/50 bg-slate-900/60 backdrop-blur-xl;
+  }
+
+  .saas-card:hover {
+    @apply shadow-card-hover -translate-y-1 bg-white/80;
+  }
+
+  .dark .saas-card:hover {
+    @apply bg-slate-900/80;
+  }
+
+  .saas-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-300;
+  }
+
+  .saas-btn-primary {
+    @apply saas-btn bg-gradient-to-r from-sky via-cyan to-purple text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 hover:scale-[1.02];
+  }
+
+  .saas-btn-ghost {
+    @apply saas-btn border border-slate-200/50 bg-white/40 backdrop-blur-md text-slate-700 hover:bg-white/80 hover:border-sky/30 hover:-translate-y-0.5;
+  }
+
+  .dark .saas-btn-ghost {
+    @apply border-slate-600 bg-slate-800 text-slate-200 hover:bg-slate-700;
+  }
+
+  .saas-input {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-slate-900 placeholder-slate-400 shadow-sm transition-all focus:border-sky focus:outline-none focus:ring-2 focus:ring-sky/20;
+  }
+
+  .dark .saas-input {
+    @apply border-slate-600 bg-slate-800 text-white placeholder-slate-500;
+  }
+
+  .page-container {
+    @apply mx-auto w-full max-w-7xl space-y-6;
+  }
+
+  .page-title {
+    @apply text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl;
+  }
+
+  .dark .page-title {
+    @apply text-white;
+  }
+
+  .stat-grid {
+    @apply grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+
+  .content-grid {
+    @apply grid gap-6 lg:grid-cols-2;
+  }
+}
+
+/* Bright animated background */
+.saas-bg {
+  background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 25%, #ede9fe 50%, #e0f7fa 75%, #dbeafe 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+.dark .saas-bg {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0c4a6e 100%);
+  background-size: 400% 400%;
+}
+
+.cloud-blob {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  filter: blur(60px);
+  animation: float 10s ease-in-out infinite;
+}
+
+.dark .cloud-blob {
+  background: rgba(56, 189, 248, 0.08);
+}
+
+/* Leaflet */
+.leaflet-container {
+  @apply z-0 rounded-card;
+  min-height: 320px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-sky/30;
+}
+
+/* Chart responsive */
+.recharts-responsive-container {
+  min-height: 0 !important;
+}
+
+.table-scroll {
+  @apply overflow-x-auto rounded-card;
+}
+
+.table-scroll table {
+  @apply min-w-full;
+}
